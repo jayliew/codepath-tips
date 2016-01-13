@@ -15,7 +15,6 @@ class SettingsViewController: UIViewController{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("view will appear")
         let defaults = NSUserDefaults.standardUserDefaults()
         
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
@@ -24,17 +23,14 @@ class SettingsViewController: UIViewController{
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print("view did appear")
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        print("view will disappear")
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        print("view did disappear")
     }
     
     @IBAction func onTap(sender: AnyObject) {

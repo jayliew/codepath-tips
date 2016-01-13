@@ -21,6 +21,13 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
+        onEditingChanged(billField)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
