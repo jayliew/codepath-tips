@@ -6,13 +6,13 @@ Time spent: 3 hours
 
 Completed:
 
-* [] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [] Required: Settings page to change the default tip percentage.
-* [] Optional: UI animations
-* [] Optional: Remembering the bill amount across app restarts (if <10mins)
-* [] Optional: Using locale-specific currency and currency thousands separators.
-* [] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+* [YES] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
+* [YES] Required: Settings page to change the default tip percentage.
+* [YES] Optional: UI animations
+* [YES] Optional: Remembering the bill amount across app restarts (if <10mins)
+* [NOT YET] Optional: Using locale-specific currency and currency thousands separators.
+* [IN PROGRESS] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
-![Video Walkthrough](name of your gif file.gif)
+![Video Walkthrough]just_the_tipper.gif
 
-Note: to embed the gif file, just check your gif file into your repo and update the name of the file above.
+GIF created with LiceCap. README file edited with Sublime Text. Version control via Git, and hosting via Github.
