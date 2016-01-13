@@ -32,4 +32,8 @@ class SettingsViewController: UIViewController{
         super.viewDidDisappear(animated)
         print("view did disappear")
     }
+    
+    @IBAction func onTap(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
