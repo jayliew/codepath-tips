@@ -13,6 +13,6 @@ Completed:
 * [NOT YET] Optional: Using locale-specific currency and currency thousands separators.
 * [IN PROGRESS] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
-![Video Walkthrough](just_the_tipper.gif)
+![Video Walkthrough](just_the_tippr.gif)
 
 GIF created with LiceCap. README file edited with Sublime Text. Version control via Git, and hosting via Github.
