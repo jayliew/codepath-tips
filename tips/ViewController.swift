@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var tipTextLabel: UILabel!
+    @IBOutlet weak var totalTextLabel: UILabel!
     
+    @IBOutlet weak var separatorView: UIView!
+    @IBOutlet weak var billAmountLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,6 +32,19 @@ class ViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
         onEditingChanged(billField)
+        
+        self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
+        billField.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
+
+        tipTextLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+        totalTextLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+        separatorView.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+        billField.textColor = UIColor.whiteColor()
+        billField.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+        billAmountLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+        tipLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+        totalLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+        
     }
 
     override func didReceiveMemoryWarning() {

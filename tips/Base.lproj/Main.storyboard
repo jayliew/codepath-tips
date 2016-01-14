@@ -94,10 +94,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="billAmountLabel" destination="ZgL-HZ-88B" id="Shl-dF-ia7"/>
                         <outlet property="billField" destination="rHz-ek-54q" id="eZT-Kv-j5q"/>
+                        <outlet property="separatorView" destination="QMh-MC-US7" id="krJ-BZ-ncB"/>
                         <outlet property="tipControl" destination="o3y-uR-Jeb" id="KYj-Yv-Wd6"/>
                         <outlet property="tipLabel" destination="A4Q-Yr-F35" id="RW0-bO-kvR"/>
+                        <outlet property="tipTextLabel" destination="F3U-ep-OIi" id="98w-Es-uDZ"/>
                         <outlet property="totalLabel" destination="Bnz-jd-Sgs" id="GGB-48-cm7"/>
+                        <outlet property="totalTextLabel" destination="VKY-I8-vzj" id="CMb-60-uXb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
