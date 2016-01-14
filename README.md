@@ -6,13 +6,14 @@ Time spent: 3 hours
 
 Completed:
 
-* [YES] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [YES] Required: Settings page to change the default tip percentage.
-* [YES] Optional: UI animations
-* [YES] Optional: Remembering the bill amount across app restarts (if <10mins)
+* [DONE] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
+* [DONE] Required: Settings page to change the default tip percentage.
+* [DONE] Optional: UI animations
+* [DONE] Optional: Remembering the bill amount across app restarts (if <10mins)
+* [DONE] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 * [NOT YET] Optional: Using locale-specific currency and currency thousands separators.
-* [IN PROGRESS] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 ![Video Walkthrough](just_the_tippr.gif)
 
+Acknowledgements:
 GIF created with LiceCap. README file edited with Sublime Text. Version control via Git, and hosting via Github.
