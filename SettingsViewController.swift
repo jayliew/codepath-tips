@@ -12,12 +12,15 @@ class SettingsViewController: UIViewController{
 
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var darkSwitch: UISwitch!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let defaults = NSUserDefaults.standardUserDefaults()
         
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
+        
+        darkSwitch.on = defaults.boolForKey("dark_theme")
         
     }
     
@@ -38,6 +41,12 @@ class SettingsViewController: UIViewController{
         defaults.setInteger(tipControl.selectedSegmentIndex, forKey: "default_tip_index")
         defaults.synchronize()
 
+    }
+    
+    @IBAction func darkValueChanged(sender: AnyObject) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(darkSwitch.on, forKey: "dark_theme")
+        defaults.synchronize()
     }
     
     @IBAction func onTap(sender: AnyObject) {

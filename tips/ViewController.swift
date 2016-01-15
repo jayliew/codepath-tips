@@ -33,18 +33,32 @@ class ViewController: UIViewController {
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
         onEditingChanged(billField)
         
-        self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
-        billField.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
-
-        tipTextLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-        totalTextLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-        separatorView.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-        billField.textColor = UIColor.whiteColor()
-        billField.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-        billAmountLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-        tipLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-        totalLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-        
+        if defaults.boolForKey("dark_theme") == true {
+            self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
+            billField.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
+            
+            tipTextLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            totalTextLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            separatorView.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            billField.textColor = UIColor.whiteColor()
+            billField.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            billAmountLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            tipLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            totalLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+        }else{
+            self.view.backgroundColor = UIColor.whiteColor()
+            billField.backgroundColor = UIColor.whiteColor()
+            
+            tipTextLabel.textColor = UIColor.blackColor()
+            totalTextLabel.textColor = UIColor.blackColor()
+            separatorView.backgroundColor = UIColor.blackColor()
+            billField.textColor = UIColor.blackColor()
+            billField.backgroundColor = UIColor.whiteColor()
+            billAmountLabel.textColor = UIColor.blackColor()
+            tipLabel.textColor = UIColor.blackColor()
+            totalLabel.textColor = UIColor.blackColor()
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
