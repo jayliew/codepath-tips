@@ -127,7 +127,7 @@
                                 <gestureRecognizers/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Sfc-FX-2i3" appends="YES" id="IFF-qx-A9E"/>
+                                    <action selector="onTap:" destination="gu4-cK-SzY" eventType="touchUpInside" id="Hrb-a0-YNe"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="IfH-qv-wS0">
@@ -139,8 +139,7 @@
                                     <segment title="22%"/>
                                 </segments>
                                 <connections>
-                                    <action selector="onValueChanged:" destination="gu4-cK-SzY" eventType="valueChanged" id="ovF-T0-uTi"/>
-                                    <outletCollection property="gestureRecognizers" destination="Sfc-FX-2i3" appends="YES" id="rgt-mQ-iwX"/>
+                                    <action selector="onValueChanged:" destination="gu4-cK-SzY" eventType="valueChanged" id="iKd-uU-fo2"/>
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select default tip rate" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Lth-U0-lUU">

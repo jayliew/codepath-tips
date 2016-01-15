@@ -33,13 +33,15 @@ class SettingsViewController: UIViewController{
         super.viewDidDisappear(animated)
     }
     
+    @IBAction func onValueChanged(sender: AnyObject) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(tipControl.selectedSegmentIndex, forKey: "default_tip_index")
+        defaults.synchronize()
+
+    }
+    
     @IBAction func onTap(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func onValueChanged(sender: AnyObject) {
-        var defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(tipControl.selectedSegmentIndex, forKey: "default_tip_index")
-        defaults.synchronize()
-    }
 }
