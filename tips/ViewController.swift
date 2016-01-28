@@ -31,7 +31,6 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         let defaults = NSUserDefaults.standardUserDefaults()
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
-//        onEditingChanged(billField)
         
         if defaults.boolForKey("dark_theme") == true {
             self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
@@ -41,7 +40,8 @@ class ViewController: UIViewController {
             billField.textColor = UIColor.whiteColor()
             billField.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
             tipLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-            totalLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            //totalLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            totalLabel.textColor = UIColor.whiteColor()
         }else{
             self.view.backgroundColor = UIColor.whiteColor()
             billField.backgroundColor = UIColor.whiteColor()
@@ -66,11 +66,26 @@ class ViewController: UIViewController {
             UIView.animateWithDuration(0.5, delay: 0.0,
                 options: .CurveEaseInOut, animations:{
                     self.billField.center.y -= 87
+                    self.tipControl.center.y -= 170
+                    self.tipLabel.center.y -= 170
+                    self.tipTextLabel.center.y -= 170
             }, completion: nil)
+            
+            UIView.animateWithDuration(0.5, delay: 0.3,
+                options: .CurveEaseInOut, animations:{
+                    self.totalTextLabel.center.y -= 170
+                    self.totalLabel.center.y -= 170
+                }, completion: nil)
+            
         }else if billField.center.y != 200.0 && billField.text == ""{
             UIView.animateWithDuration(0.5, delay: 0.0,
                 options: .CurveEaseInOut, animations:{
                     self.billField.center.y += 87
+                    self.tipControl.center.y += 170
+                    self.tipLabel.center.y += 170
+                    self.tipTextLabel.center.y += 170
+                    self.totalLabel.center.y += 170
+                    self.totalTextLabel.center.y += 170
                 }, completion: nil)
         }
         
