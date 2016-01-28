@@ -14,8 +14,11 @@ Completed:
 * [DONE] Optional: Add a light/dark color theme to the settings view. In viewWillAppear, update views with the correct theme colors.
 * [DONE] Optional: Using locale-specific currency and currency thousands separators.
 * [DONE] Optional: Added calculations for each person's bill if it was split 2 ways and 3 ways
+* [DONE] Optional: Added App Icon
 
 ![Video Walkthrough](just_the_tippr.gif)
 
 Acknowledgements:
 GIF created with LiceCap. README file edited with Sublime Text. Version control via Git, and hosting via Github.
+
+_Shoutout to Caitlin <3_
