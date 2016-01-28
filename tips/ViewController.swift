@@ -60,6 +60,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    var currencyFormatter: NSNumberFormatter {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        return formatter
+    }
+    
     @IBAction func onEditingChanged(sender: AnyObject) {
 
         if billField.center.y == 200.0 && billField.text != "" {
@@ -97,8 +103,11 @@ class ViewController: UIViewController {
         let tip = billAmount * tipPercentage
         let total = billAmount + tip
         
-        tipLabel.text = String(format: "$%.2f",tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        //tipLabel.text = String(format: "$%.2f",tip)
+        //totalLabel.text = String(format: "$%.2f", total)
+        tipLabel.text = currencyFormatter.stringFromNumber(tip)
+        totalLabel.text = currencyFormatter.stringFromNumber(total)
+        
     }
 
     @IBAction func onTap(sender: AnyObject) {
