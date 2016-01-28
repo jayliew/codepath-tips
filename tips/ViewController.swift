@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         billField.becomeFirstResponder()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -67,12 +68,12 @@ class ViewController: UIViewController {
         totalForTwoLabel.center.y += view.bounds.height
         twoPersonA.center.y += view.bounds.height
         twoPersonB.center.y += view.bounds.height
-
+            
         totalForThreeLabel.center.y += view.bounds.height
         threePersonA.center.y += view.bounds.height
         threePersonB.center.y += view.bounds.height
         threePersonC.center.y += view.bounds.height
-
+        
     }
 
     override func didReceiveMemoryWarning() {
