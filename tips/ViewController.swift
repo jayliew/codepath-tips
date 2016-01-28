@@ -63,6 +63,7 @@ class ViewController: UIViewController {
     var currencyFormatter: NSNumberFormatter {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
         return formatter
     }
     
