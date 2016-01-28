@@ -55,13 +55,10 @@
                                     <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hhX-Xf-RKU"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VKY-I8-vzj">
-                                <rect key="frame" x="36" y="468" width="20" height="36"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man.png" id="gf9-L7-5Dc">
+                                <rect key="frame" x="36" y="473" width="13" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -83,11 +80,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billField" destination="rHz-ek-54q" id="eZT-Kv-j5q"/>
+                        <outlet property="onePerson" destination="gf9-L7-5Dc" id="q52-UD-aHH"/>
                         <outlet property="tipControl" destination="o3y-uR-Jeb" id="KYj-Yv-Wd6"/>
                         <outlet property="tipLabel" destination="A4Q-Yr-F35" id="RW0-bO-kvR"/>
                         <outlet property="tipTextLabel" destination="F3U-ep-OIi" id="98w-Es-uDZ"/>
                         <outlet property="totalLabel" destination="Bnz-jd-Sgs" id="GGB-48-cm7"/>
-                        <outlet property="totalTextLabel" destination="VKY-I8-vzj" id="CMb-60-uXb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -192,4 +189,7 @@
             <point key="canvasLocation" x="220" y="425"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="man.png" width="16" height="16"/>
+    </resources>
 </document>

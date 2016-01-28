@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E17B76B91C4590A90016A580 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B76B81C4590A90016A580 /* SettingsViewController.swift */; };
+		E1CD62B91C59B8FE00A139E4 /* man.png in Resources */ = {isa = PBXBuildFile; fileRef = E1CD62B81C59B8FE00A139E4 /* man.png */; };
 		E1D2D21A1C3DA3F300EF0F89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2D2191C3DA3F300EF0F89 /* AppDelegate.swift */; };
 		E1D2D21C1C3DA3F300EF0F89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2D21B1C3DA3F300EF0F89 /* ViewController.swift */; };
 		E1D2D21F1C3DA3F300EF0F89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D2D21D1C3DA3F300EF0F89 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		E17B76B81C4590A90016A580 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
+		E1CD62B81C59B8FE00A139E4 /* man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man.png; sourceTree = "<group>"; };
 		E1D2D2161C3DA3F300EF0F89 /* tips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D2D2191C3DA3F300EF0F89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1D2D21B1C3DA3F300EF0F89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				E1D2D21B1C3DA3F300EF0F89 /* ViewController.swift */,
 				E1D2D21D1C3DA3F300EF0F89 /* Main.storyboard */,
 				E1D2D2201C3DA3F300EF0F89 /* Assets.xcassets */,
+				E1CD62B81C59B8FE00A139E4 /* man.png */,
 				E1D2D2221C3DA3F300EF0F89 /* LaunchScreen.storyboard */,
 				E1D2D2251C3DA3F300EF0F89 /* Info.plist */,
 			);
@@ -242,6 +245,7 @@
 			files = (
 				E1D2D2241C3DA3F300EF0F89 /* LaunchScreen.storyboard in Resources */,
 				E1D2D2211C3DA3F300EF0F89 /* Assets.xcassets in Resources */,
+				E1CD62B91C59B8FE00A139E4 /* man.png in Resources */,
 				E1D2D21F1C3DA3F300EF0F89 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
