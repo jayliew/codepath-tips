@@ -59,6 +59,40 @@
                                 <rect key="frame" x="36" y="473" width="13" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man.png" id="azr-BW-D5n">
+                                <rect key="frame" x="36" y="504" width="13" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man.png" id="Bth-a7-paK">
+                                <rect key="frame" x="52" y="504" width="13" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sS3-yf-a9M" userLabel="Total For Two Label">
+                                <rect key="frame" x="77" y="492" width="208" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fby-je-vXw" userLabel="Total For Three Label">
+                                <rect key="frame" x="77" y="526" width="208" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man.png" id="F1m-yk-8Gv">
+                                <rect key="frame" x="36" y="538" width="13" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man.png" id="WCS-cv-v9I">
+                                <rect key="frame" x="52" y="538" width="13" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man.png" id="XXP-F1-npi">
+                                <rect key="frame" x="67" y="538" width="13" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -81,10 +115,17 @@
                     <connections>
                         <outlet property="billField" destination="rHz-ek-54q" id="eZT-Kv-j5q"/>
                         <outlet property="onePerson" destination="gf9-L7-5Dc" id="q52-UD-aHH"/>
+                        <outlet property="threePersonA" destination="F1m-yk-8Gv" id="ZW9-cs-yLp"/>
+                        <outlet property="threePersonB" destination="WCS-cv-v9I" id="7wc-dr-05Q"/>
+                        <outlet property="threePersonC" destination="XXP-F1-npi" id="nn8-SK-cwf"/>
                         <outlet property="tipControl" destination="o3y-uR-Jeb" id="KYj-Yv-Wd6"/>
                         <outlet property="tipLabel" destination="A4Q-Yr-F35" id="RW0-bO-kvR"/>
                         <outlet property="tipTextLabel" destination="F3U-ep-OIi" id="98w-Es-uDZ"/>
+                        <outlet property="totalForThreeLabel" destination="Fby-je-vXw" id="feF-oT-HhS"/>
+                        <outlet property="totalForTwoLabel" destination="sS3-yf-a9M" id="b2o-Jf-9Yl"/>
                         <outlet property="totalLabel" destination="Bnz-jd-Sgs" id="GGB-48-cm7"/>
+                        <outlet property="twoPersonA" destination="azr-BW-D5n" id="asr-EN-awN"/>
+                        <outlet property="twoPersonB" destination="Bth-a7-paK" id="aJ9-JB-SLz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

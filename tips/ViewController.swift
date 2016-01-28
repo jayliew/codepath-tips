@@ -15,9 +15,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipTextLabel: UILabel!
-    @IBOutlet weak var totalTextLabel: UILabel!
+//    @IBOutlet weak var totalTextLabel: UILabel!
     @IBOutlet weak var onePerson: UIImageView!
     @IBOutlet weak var billAmountLabel: UILabel!
+    @IBOutlet weak var totalForTwoLabel: UILabel!
+    @IBOutlet weak var totalForThreeLabel: UILabel!
+    @IBOutlet weak var twoPersonA: UIImageView!
+    @IBOutlet weak var twoPersonB: UIImageView!
+    @IBOutlet weak var threePersonA: UIImageView!
+    @IBOutlet weak var threePersonB: UIImageView!
+    @IBOutlet weak var threePersonC: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +48,31 @@ class ViewController: UIViewController {
             tipLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
             //totalLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
             totalLabel.textColor = UIColor.whiteColor()
+            totalForTwoLabel.textColor = UIColor.whiteColor()
+            totalForThreeLabel.textColor = UIColor.whiteColor()
         }else{
             self.view.backgroundColor = UIColor.whiteColor()
             billField.backgroundColor = UIColor.whiteColor()
             tipTextLabel.textColor = UIColor.blackColor()
-            totalTextLabel.textColor = UIColor.blackColor()
+//            totalTextLabel.textColor = UIColor.blackColor()
             billField.textColor = UIColor.blackColor()
             billField.backgroundColor = UIColor.whiteColor()
             tipLabel.textColor = UIColor.blackColor()
             totalLabel.textColor = UIColor.blackColor()
-            
+            totalForTwoLabel.textColor = UIColor.blackColor()
+            totalForThreeLabel.textColor = UIColor.blackColor()
         }
+        
+        // hide UI for 2 and 3 people's share of the bill
+        totalForTwoLabel.center.y += view.bounds.height
+        twoPersonA.center.y += view.bounds.height
+        twoPersonB.center.y += view.bounds.height
+
+        totalForThreeLabel.center.y += view.bounds.height
+        threePersonA.center.y += view.bounds.height
+        threePersonB.center.y += view.bounds.height
+        threePersonC.center.y += view.bounds.height
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,6 +103,22 @@ class ViewController: UIViewController {
                     self.totalLabel.center.y -= 170
                     self.onePerson.center.y -= 170
                 }, completion: nil)
+
+            UIView.animateWithDuration(0.5, delay: 0.6,
+                options: .CurveEaseInOut, animations:{
+                    self.totalForTwoLabel.center.y -= self.view.bounds.height + 130
+                    self.twoPersonA.center.y -= self.view.bounds.height + 130
+                    self.twoPersonB.center.y -= self.view.bounds.height + 130
+                }, completion: nil)
+
+            UIView.animateWithDuration(0.5, delay: 0.9,
+                options: .CurveEaseInOut, animations:{
+                    self.totalForThreeLabel.center.y -= self.view.bounds.height + 95
+                    self.threePersonA.center.y -= self.view.bounds.height + 95
+                    self.threePersonB.center.y -= self.view.bounds.height + 95
+                    self.threePersonC.center.y -= self.view.bounds.height + 95
+                }, completion: nil)
+
             
         }else if billField.center.y != 200.0 && billField.text == ""{
             UIView.animateWithDuration(0.5, delay: 0.0,
@@ -92,9 +129,18 @@ class ViewController: UIViewController {
                     self.tipTextLabel.center.y += 170
                     self.totalLabel.center.y += 170
                     self.onePerson.center.y += 170
+                    
+                    self.totalForTwoLabel.center.y += self.view.bounds.height + 130
+                    self.twoPersonA.center.y += self.view.bounds.height + 130
+                    self.twoPersonB.center.y += self.view.bounds.height + 130
+
+                    self.totalForThreeLabel.center.y += self.view.bounds.height + 95
+                    self.threePersonA.center.y += self.view.bounds.height + 95
+                    self.threePersonB.center.y += self.view.bounds.height + 95
+                    self.threePersonC.center.y += self.view.bounds.height + 95
+
                 }, completion: nil)
         }
-        
         
         let billAmount = NSString(string: billField.text!).doubleValue
         let tipPercentages = [0.18, 0.2, 0.22]
@@ -107,6 +153,8 @@ class ViewController: UIViewController {
         //totalLabel.text = String(format: "$%.2f", total)
         tipLabel.text = currencyFormatter.stringFromNumber(tip)
         totalLabel.text = currencyFormatter.stringFromNumber(total)
+        totalForTwoLabel.text = currencyFormatter.stringFromNumber(total / 2)
+        totalForThreeLabel.text = currencyFormatter.stringFromNumber(total / 3)
         
     }
 
