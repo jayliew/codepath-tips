@@ -40,6 +40,11 @@ class ViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
         
+        if defaults.objectForKey("billAmount") != nil {
+            billField.text = String(defaults.doubleForKey("billAmount"))
+            onEditingChanged(billField)
+        }
+        
         if defaults.boolForKey("dark_theme") == true {
             self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
             billField.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
@@ -158,6 +163,13 @@ class ViewController: UIViewController {
         totalForThreeLabel.text = currencyFormatter.stringFromNumber(total / 3)
         
     }
+
+    override func viewWillDisappear(animated: Bool){
+        super.viewWillDisappear(animated)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setDouble(NSString(string: billField.text!).doubleValue, forKey: "billAmount")
+    }
+    
 
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)

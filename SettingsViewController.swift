@@ -42,7 +42,7 @@ class SettingsViewController: UIViewController{
     }
     
     override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
+        super.viewWillDisappear(animated)        
     }
     
     override func viewDidDisappear(animated: Bool) {
