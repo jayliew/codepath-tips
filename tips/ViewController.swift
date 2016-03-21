@@ -8,6 +8,17 @@
 
 import UIKit
 
+extension UIColor {
+    // Extend UIColor to allow HTML-style hex values
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Bad red hex value: 0 - 255 only")
+        assert(green >= 0 && green <= 255, "Bad green hex value: 0 - 255 only")
+        assert(blue >= 0 && blue <= 255, "Bad blue hex value: 0 - 255 only")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tipControl: UISegmentedControl!
@@ -15,7 +26,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipTextLabel: UILabel!
-//    @IBOutlet weak var totalTextLabel: UILabel!
     @IBOutlet weak var onePerson: UIImageView!
     @IBOutlet weak var billAmountLabel: UILabel!
     @IBOutlet weak var totalForTwoLabel: UILabel!
@@ -52,15 +62,13 @@ class ViewController: UIViewController {
             billField.textColor = UIColor.whiteColor()
             billField.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
             tipLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-            //totalLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
             totalLabel.textColor = UIColor.whiteColor()
             totalForTwoLabel.textColor = UIColor.whiteColor()
             totalForThreeLabel.textColor = UIColor.whiteColor()
         }else{
-            self.view.backgroundColor = UIColor.whiteColor()
+            self.view.backgroundColor = UIColor(red:0xCC, green: 0xE5, blue: 0xFF)
             billField.backgroundColor = UIColor.whiteColor()
             tipTextLabel.textColor = UIColor.blackColor()
-//            totalTextLabel.textColor = UIColor.blackColor()
             billField.textColor = UIColor.blackColor()
             billField.backgroundColor = UIColor.whiteColor()
             tipLabel.textColor = UIColor.blackColor()
@@ -92,10 +100,30 @@ class ViewController: UIViewController {
         formatter.locale = NSLocale.currentLocale()
         return formatter
     }
+
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+            // If landscape
+            self.billField.center.y = 80
+        } else {
+            // If portrait
+            onEditingChanged(billField)
+            /*
+            if billField.text == "" {
+                billField.center.y = 200
+            }else {
+                billField.center.y = 200 - 87
+            }
+            */
+            
+        }
+    }
     
     @IBAction func onEditingChanged(sender: AnyObject) {
 
         if billField.center.y == 200.0 && billField.text != "" {
+            // If bill amount field is not empty, move these
+            // views up the y axis
             UIView.animateWithDuration(0.5, delay: 0.0,
                 options: .CurveEaseInOut, animations:{
                     self.billField.center.y -= 87
@@ -126,7 +154,9 @@ class ViewController: UIViewController {
                 }, completion: nil)
 
             
-        }else if billField.center.y != 200.0 && billField.text == ""{
+        }else if billField.center.y != 200.0 && billField.text == "" && UIDevice.currentDevice().orientation.isPortrait.boolValue{
+            // If bill amount field is empty, move these
+            // views down the y axis
             UIView.animateWithDuration(0.5, delay: 0.0,
                 options: .CurveEaseInOut, animations:{
                     self.billField.center.y += 87
