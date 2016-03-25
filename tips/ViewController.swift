@@ -21,6 +21,8 @@ extension UIColor {
 
 class ViewController: UIViewController {
 
+    // MARK: Outlets
+    
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
@@ -42,7 +44,6 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         billField.becomeFirstResponder()
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,12 +53,15 @@ class ViewController: UIViewController {
         
         // Set theme color
         if defaults.boolForKey("dark_theme") == true {
-            self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
-            billField.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
-            tipTextLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            
+            let darkBlue = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
+            let lightBlue = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            self.view.backgroundColor = darkBlue
+            billField.backgroundColor = darkBlue
+            tipTextLabel.textColor = lightBlue
             billField.textColor = UIColor.whiteColor()
-            billField.backgroundColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-            tipLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            billField.backgroundColor = lightBlue
+            tipLabel.textColor = lightBlue
             totalLabel.textColor = UIColor.whiteColor()
             totalForTwoLabel.textColor = UIColor.whiteColor()
             totalForThreeLabel.textColor = UIColor.whiteColor()
@@ -78,14 +82,12 @@ class ViewController: UIViewController {
             billField.text = String(defaults.doubleForKey("billAmount"))
             onEditingChanged(billField)
         }
-
     }
 
     private func hideBillSplits(){
         // hide all views related to splitting the bill 2 and 3 ways
         UIView.animateWithDuration(0.5, delay: 0.0,
                                    options: .CurveEaseInOut, animations:{
-                                    
                                     self.totalForTwoLabel.center.y += 200
                                     self.twoPersonA.center.y += 182
                                     self.twoPersonB.center.y += 182
@@ -94,7 +96,6 @@ class ViewController: UIViewController {
                                     self.threePersonA.center.y += 102
                                     self.threePersonB.center.y += 102
                                     self.threePersonC.center.y += 102
-                                    
             }, completion: nil)
     }
 
@@ -121,9 +122,7 @@ class ViewController: UIViewController {
             }
             else{
                 onEditingChanged(billField)
-                //billField.center.y = 200 - 87
             }
-            
         }
     }
     
@@ -194,7 +193,6 @@ class ViewController: UIViewController {
         totalLabel.text = currencyFormatter.stringFromNumber(total)
         totalForTwoLabel.text = currencyFormatter.stringFromNumber(total / 2)
         totalForThreeLabel.text = currencyFormatter.stringFromNumber(total / 3)
-        
     }
     
     override func viewWillDisappear(animated: Bool){

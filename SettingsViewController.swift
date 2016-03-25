@@ -10,12 +10,20 @@ import UIKit
 
 class SettingsViewController: UIViewController{
 
+    
+    // MARK: Outlets
+    
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var darkSwitch: UISwitch!
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var tipRateLabel: UITextField!
     @IBOutlet weak var darkThemeLabel: UILabel!
+    
+    // MARK: Properties
+    
+    let lightBlue = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+    let darkBlue = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,13 +33,13 @@ class SettingsViewController: UIViewController{
         darkSwitch.on = defaults.boolForKey("dark_theme")
         
         if defaults.boolForKey("dark_theme") == true {
-            self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
-            darkThemeLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-            tipRateLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            self.darkThemeLabel.textColor = lightBlue
+            self.tipRateLabel.textColor = lightBlue
+            self.view.backgroundColor = darkBlue
         }else{
             self.view.backgroundColor = UIColor.whiteColor()
-            darkThemeLabel.textColor = UIColor.blackColor()
-            tipRateLabel.textColor = UIColor.blackColor()
+            self.darkThemeLabel.textColor = UIColor.blackColor()
+            self.tipRateLabel.textColor = UIColor.blackColor()
         }
     }
     
@@ -59,13 +67,13 @@ class SettingsViewController: UIViewController{
         defaults.setBool(darkSwitch.on, forKey: "dark_theme")
         defaults.synchronize()
         if defaults.boolForKey("dark_theme") == true {
-            self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
-            darkThemeLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-            tipRateLabel.textColor = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
+            self.view.backgroundColor = darkBlue
+            self.darkThemeLabel.textColor = lightBlue
+            self.tipRateLabel.textColor = lightBlue
         }else{
             self.view.backgroundColor = UIColor.whiteColor()
-            darkThemeLabel.textColor = UIColor.blackColor()
-            tipRateLabel.textColor = UIColor.blackColor()
+            self.darkThemeLabel.textColor = UIColor.blackColor()
+            self.tipRateLabel.textColor = UIColor.blackColor()
         }
 
     }

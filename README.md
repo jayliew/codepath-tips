@@ -2,7 +2,7 @@
 
 This is a Tip Calculator application for iOS submitted as the [pre-assignment](https://gist.github.com/timothy1ee/7747214) requirement for CodePath.
 
-Time spent: 15 hours
+Time spent: 23 hours
 
 Completed:
 
@@ -15,6 +15,10 @@ Completed:
 * [DONE] Optional: Using locale-specific currency and currency thousands separators.
 * [DONE] Optional: Added calculations for each person's bill if it was split 2 ways and 3 ways
 * [DONE] Optional: Added App Icon
+* [DONE] Optional: Added extension to UIColor class to accept color hex values
+* [DONE] Optional: Added a navigation controller on the settings view, with back (bar) button
+
+Notes: The animation work as shown below for iPhone 5S's screen size (autoLayout skills still in-progress)
 
 ![Video Walkthrough](just_the_tippr.gif)
 
