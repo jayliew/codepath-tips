@@ -130,10 +130,7 @@ class ViewController: UIViewController {
     @IBAction func backFromSettings(sender: UIStoryboardSegue){
     }
     
-    @IBAction func onEditingChanged(sender: AnyObject) {
-
-        print("on editing changed")
-        
+    @IBAction func onEditingChanged(sender: AnyObject) {        
         if billField.center.y == 200.0 && billField.text != "" {
             // If bill amount field is not empty, move these
             // views up the y axis
