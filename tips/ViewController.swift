@@ -50,11 +50,7 @@ class ViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
         
-        if defaults.objectForKey("billAmount") != nil {
-            billField.text = String(defaults.doubleForKey("billAmount"))
-            onEditingChanged(billField)
-        }
-        
+        // Set theme color
         if defaults.boolForKey("dark_theme") == true {
             self.view.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
             billField.backgroundColor = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
@@ -77,16 +73,29 @@ class ViewController: UIViewController {
             totalForThreeLabel.textColor = UIColor.blackColor()
         }
         
-        // hide UI for 2 and 3 people's share of the bill
-        totalForTwoLabel.center.y += view.bounds.height
-        twoPersonA.center.y += view.bounds.height
-        twoPersonB.center.y += view.bounds.height
-            
-        totalForThreeLabel.center.y += view.bounds.height
-        threePersonA.center.y += view.bounds.height
-        threePersonB.center.y += view.bounds.height
-        threePersonC.center.y += view.bounds.height
-        
+        if defaults.objectForKey("billAmount") != nil {
+            // grab value from NSUserDefaults if it exists
+            billField.text = String(defaults.doubleForKey("billAmount"))
+            onEditingChanged(billField)
+        }
+
+    }
+
+    private func hideBillSplits(){
+        // hide all views related to splitting the bill 2 and 3 ways
+        UIView.animateWithDuration(0.5, delay: 0.0,
+                                   options: .CurveEaseInOut, animations:{
+                                    
+                                    self.totalForTwoLabel.center.y += 200
+                                    self.twoPersonA.center.y += 182
+                                    self.twoPersonB.center.y += 182
+                                    
+                                    self.totalForThreeLabel.center.y += 120
+                                    self.threePersonA.center.y += 102
+                                    self.threePersonB.center.y += 102
+                                    self.threePersonC.center.y += 102
+                                    
+            }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,20 +116,24 @@ class ViewController: UIViewController {
             self.billField.center.y = 80
         } else {
             // If portrait
-            onEditingChanged(billField)
-            /*
             if billField.text == "" {
                 billField.center.y = 200
-            }else {
-                billField.center.y = 200 - 87
             }
-            */
+            else{
+                onEditingChanged(billField)
+                //billField.center.y = 200 - 87
+            }
             
         }
     }
     
+    @IBAction func backFromSettings(sender: UIStoryboardSegue){
+    }
+    
     @IBAction func onEditingChanged(sender: AnyObject) {
 
+        print("on editing changed")
+        
         if billField.center.y == 200.0 && billField.text != "" {
             // If bill amount field is not empty, move these
             // views up the y axis
@@ -140,23 +153,24 @@ class ViewController: UIViewController {
 
             UIView.animateWithDuration(0.5, delay: 0.6,
                 options: .CurveEaseInOut, animations:{
-                    self.totalForTwoLabel.center.y -= self.view.bounds.height + 130
-                    self.twoPersonA.center.y -= self.view.bounds.height + 130
-                    self.twoPersonB.center.y -= self.view.bounds.height + 130
+                    self.totalForTwoLabel.center.y -= 200
+                    self.twoPersonA.center.y -= 182
+                    self.twoPersonB.center.y -= 182
                 }, completion: nil)
 
             UIView.animateWithDuration(0.5, delay: 0.9,
                 options: .CurveEaseInOut, animations:{
-                    self.totalForThreeLabel.center.y -= self.view.bounds.height + 95
-                    self.threePersonA.center.y -= self.view.bounds.height + 95
-                    self.threePersonB.center.y -= self.view.bounds.height + 95
-                    self.threePersonC.center.y -= self.view.bounds.height + 95
+                    self.totalForThreeLabel.center.y -= 120
+                    self.threePersonA.center.y -= 102
+                    self.threePersonB.center.y -= 102
+                    self.threePersonC.center.y -= 102
                 }, completion: nil)
-
-            
-        }else if billField.center.y != 200.0 && billField.text == "" && UIDevice.currentDevice().orientation.isPortrait.boolValue{
+        }
+        
+        else if billField.center.y != 200.0 && billField.text == "" && UIDevice.currentDevice().orientation.isPortrait.boolValue{
             // If bill amount field is empty, move these
             // views down the y axis
+
             UIView.animateWithDuration(0.5, delay: 0.0,
                 options: .CurveEaseInOut, animations:{
                     self.billField.center.y += 87
@@ -165,17 +179,9 @@ class ViewController: UIViewController {
                     self.tipTextLabel.center.y += 170
                     self.totalLabel.center.y += 170
                     self.onePerson.center.y += 170
-                    
-                    self.totalForTwoLabel.center.y += self.view.bounds.height + 130
-                    self.twoPersonA.center.y += self.view.bounds.height + 130
-                    self.twoPersonB.center.y += self.view.bounds.height + 130
-
-                    self.totalForThreeLabel.center.y += self.view.bounds.height + 95
-                    self.threePersonA.center.y += self.view.bounds.height + 95
-                    self.threePersonB.center.y += self.view.bounds.height + 95
-                    self.threePersonC.center.y += self.view.bounds.height + 95
-
                 }, completion: nil)
+
+            hideBillSplits()
         }
         
         let billAmount = NSString(string: billField.text!).doubleValue
@@ -193,7 +199,7 @@ class ViewController: UIViewController {
         totalForThreeLabel.text = currencyFormatter.stringFromNumber(total / 3)
         
     }
-
+    
     override func viewWillDisappear(animated: Bool){
         super.viewWillDisappear(animated)
         let defaults = NSUserDefaults.standardUserDefaults()

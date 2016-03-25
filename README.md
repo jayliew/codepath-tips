@@ -19,6 +19,4 @@ Completed:
 ![Video Walkthrough](just_the_tippr.gif)
 
 Acknowledgements:
-GIF created with LiceCap. README file edited with Sublime Text. Version control via Git, and hosting via Github.
-
-_Shoutout to Caitlin <3_
+GIF created with LiceCap. README file edited with Atom. Version control via Git, and hosting via Github. Debugging help via Stack Overflow and #swift on ios-developers.slack.com
