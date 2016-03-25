@@ -18,7 +18,7 @@ Completed:
 * [DONE] Optional: Added extension to UIColor class to accept color hex values
 * [DONE] Optional: Added a navigation controller on the settings view, with back (bar) button
 
-Notes: The animation work as shown below for iPhone 5S's screen size (autoLayout skills still in-progress)
+Notes: The animation works as shown below for iPhone 5S's screen size (my AutoLayout skills is still a work in-progress)
 
 ![Video Walkthrough](just_the_tippr.gif)
 
