@@ -29,7 +29,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipTextLabel: UILabel!
     @IBOutlet weak var onePerson: UIImageView!
-    @IBOutlet weak var billAmountLabel: UILabel!
+    
+    @IBOutlet weak var twoPersonA: UIImageView!
+    @IBOutlet weak var twoPersonB: UIImageView!
+    @IBOutlet weak var totalForTwoLabel: UILabel!
+    
+    @IBOutlet weak var threePersonA: UIImageView!
+    @IBOutlet weak var threePersonB: UIImageView!
+    @IBOutlet weak var threePersonC: UIImageView!
+    @IBOutlet weak var totalForThreeLabel: UILabel!
+ 
 //    @IBOutlet weak var totalForTwoLabel: UILabel!
 //    @IBOutlet weak var totalForThreeLabel: UILabel!
 //    @IBOutlet weak var twoPersonA: UIImageView!
@@ -37,12 +46,28 @@ class ViewController: UIViewController {
 //    @IBOutlet weak var threePersonA: UIImageView!
 //    @IBOutlet weak var threePersonB: UIImageView!
 //    @IBOutlet weak var threePersonC: UIImageView!
-    
+
+    @IBOutlet weak var billAmountLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+//        twoPersonA.contentMode = .ScaleAspectFill
+//        twoPersonB.contentMode = .ScaleAspectFill
+//        threePersonA.contentMode = .ScaleAspectFill
+//        threePersonB.contentMode = .ScaleAspectFill
+//        threePersonC.contentMode = .ScaleAspectFill
+
+//        twoPersonA.contentMode = .ScaleAspectFit
+//        twoPersonB.contentMode = .ScaleAspectFit
+//        threePersonA.contentMode = .ScaleAspectFit
+//        threePersonB.contentMode = .ScaleAspectFit
+//        threePersonC.contentMode = .ScaleAspectFit
+
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
+        totalForTwoLabel.text = "$0.00"
+        totalForThreeLabel.text = "$0.00"
         billField.becomeFirstResponder()
     }
     
@@ -200,10 +225,11 @@ class ViewController: UIViewController {
         
         //tipLabel.text = String(format: "$%.2f",tip)
         //totalLabel.text = String(format: "$%.2f", total)
+        
         tipLabel.text = currencyFormatter.stringFromNumber(tip)
         totalLabel.text = currencyFormatter.stringFromNumber(total)
-//        totalForTwoLabel.text = currencyFormatter.stringFromNumber(total / 2)
-//        totalForThreeLabel.text = currencyFormatter.stringFromNumber(total / 3)
+        totalForTwoLabel.text = currencyFormatter.stringFromNumber(total / 2)
+        totalForThreeLabel.text = currencyFormatter.stringFromNumber(total / 3)
     }
     
     override func viewWillDisappear(animated: Bool){
