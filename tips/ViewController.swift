@@ -49,6 +49,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var billAmountLabel: UILabel!
 
+    let pink = UIColor(red:0xF8, green: 0xDB, blue: 0xDA)
+    let lightPink = UIColor(red:0xF6, green: 0xCA, blue: 0xC8)
+    let blue = UIColor(red:0x91, green:0xA4, blue:0xD0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,22 +83,30 @@ class ViewController: UIViewController {
         // Set theme color
         if defaults.bool(forKey: "dark_theme") == true {
             
-            let darkBlue = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
-            let lightBlue = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-            self.view.backgroundColor = darkBlue
-            billField.backgroundColor = darkBlue
-            tipTextLabel.textColor = lightBlue
-            billField.textColor = UIColor.white
-            billField.backgroundColor = lightBlue
-            tipLabel.textColor = lightBlue
-            totalLabel.textColor = UIColor.white
-//            totalForTwoLabel.textColor = UIColor.whiteColor()
-//            totalForThreeLabel.textColor = UIColor.whiteColor()
-        }else{
-            self.view.backgroundColor = UIColor(red:0xF8, green: 0xDB, blue: 0xDA)
-            //self.view.backgroundColor = UIColor(red:0xF6, green: 0xCA, blue: 0xC8)
-            tipControl.tintColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
+            self.view.backgroundColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
+            billField.backgroundColor = blue
+            billField.textColor = UIColor.black
+            billField.backgroundColor = pink
             
+            tipControl.tintColor = pink
+            tipControl.backgroundColor = blue
+            tipControl.layer.cornerRadius = 3
+            tipControl.layer.shadowColor = UIColor.black.cgColor
+            tipControl.layer.shadowOffset = CGSize(width: 3, height: 3)
+            tipControl.layer.shadowOpacity = 0.3
+            tipControl.layer.shadowRadius = 3.0
+            
+            tipTextLabel.textColor = UIColor.black
+            tipLabel.textColor = UIColor.black
+            totalLabel.textColor = UIColor.black
+            totalForTwoLabel.textColor = UIColor.black
+            totalForThreeLabel.textColor = UIColor.black
+            
+        }else{
+            self.view.backgroundColor = pink
+            //self.view.backgroundColor = UIColor(red:0xF6, green: 0xCA, blue: 0xC8)
+            
+            tipControl.tintColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
             tipControl.backgroundColor = UIColor.white
             tipControl.layer.cornerRadius = 3
             tipControl.layer.shadowColor = UIColor.black.cgColor
@@ -108,9 +120,9 @@ class ViewController: UIViewController {
             billField.textColor = UIColor.black
             billField.backgroundColor = UIColor.white
             tipLabel.textColor = UIColor.black
-//            totalLabel.textColor = UIColor.blackColor()
-//            totalForTwoLabel.textColor = UIColor.blackColor()
-//            totalForThreeLabel.textColor = UIColor.blackColor()
+            totalLabel.textColor = UIColor.black
+            totalForTwoLabel.textColor = UIColor.black
+            totalForThreeLabel.textColor = UIColor.black
         }
         
         if defaults.object(forKey: "billAmount") != nil {

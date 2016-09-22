@@ -33,11 +33,27 @@ class SettingsViewController: UIViewController{
         darkSwitch.isOn = defaults.bool(forKey: "dark_theme")
         
         if defaults.bool(forKey: "dark_theme") == true {
-            self.darkThemeLabel.textColor = lightBlue
-            self.tipRateLabel.textColor = lightBlue
-            self.view.backgroundColor = darkBlue
+            
+            self.view.backgroundColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
+            
+            tipControl.tintColor = UIColor(red:0xF8, green: 0xDB, blue: 0xDA)
+            tipControl.backgroundColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
+            
+            self.darkThemeLabel.textColor = UIColor.white
+            self.tipRateLabel.textColor = UIColor.white
         }else{
-            self.view.backgroundColor = UIColor.white
+            self.view.backgroundColor = UIColor(red:0xF8, green: 0xDB, blue: 0xDA)
+            
+            tipControl.tintColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
+            tipControl.backgroundColor = UIColor.white
+            tipControl.layer.cornerRadius = 3
+            tipControl.layer.shadowColor = UIColor.black.cgColor
+            tipControl.layer.shadowOffset = CGSize(width: 3, height: 3)
+            tipControl.layer.shadowOpacity = 0.3
+            tipControl.layer.shadowRadius = 3.0
+            
+            darkSwitch.tintColor = UIColor.white
+            
             self.darkThemeLabel.textColor = UIColor.black
             self.tipRateLabel.textColor = UIColor.black
         }
@@ -67,13 +83,31 @@ class SettingsViewController: UIViewController{
         defaults.set(darkSwitch.isOn, forKey: "dark_theme")
         defaults.synchronize()
         if defaults.bool(forKey: "dark_theme") == true {
-            self.view.backgroundColor = darkBlue
-            self.darkThemeLabel.textColor = lightBlue
-            self.tipRateLabel.textColor = lightBlue
+            
+            self.view.backgroundColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
+
+            tipControl.tintColor = UIColor(red:0xF8, green: 0xDB, blue: 0xDA)
+            tipControl.backgroundColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
+
+            self.darkThemeLabel.textColor = UIColor.white
+            self.tipRateLabel.textColor = UIColor.white
+            
         }else{
-            self.view.backgroundColor = UIColor.white
+            self.view.backgroundColor = UIColor(red:0xF8, green: 0xDB, blue: 0xDA)
+            
+            tipControl.tintColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
+            tipControl.backgroundColor = UIColor.white
+            tipControl.layer.cornerRadius = 3
+            tipControl.layer.shadowColor = UIColor.black.cgColor
+            tipControl.layer.shadowOffset = CGSize(width: 3, height: 3)
+            tipControl.layer.shadowOpacity = 0.3
+            tipControl.layer.shadowRadius = 3.0
+            
+            darkSwitch.tintColor = UIColor.white
+            
             self.darkThemeLabel.textColor = UIColor.black
             self.tipRateLabel.textColor = UIColor.black
+
         }
 
     }

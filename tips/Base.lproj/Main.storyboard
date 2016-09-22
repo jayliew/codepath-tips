@@ -170,7 +170,7 @@
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="677-ln-bIE">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cT-7T-3kY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inverse theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cT-7T-3kY">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -195,9 +195,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="IfH-qv-wS0" firstAttribute="top" secondItem="Lth-U0-lUU" secondAttribute="bottom" constant="20" id="FF0-vD-5ye"/>
+                            <constraint firstItem="IfH-qv-wS0" firstAttribute="top" secondItem="Lth-U0-lUU" secondAttribute="bottom" constant="15" id="FF0-vD-5ye"/>
                             <constraint firstItem="IfH-qv-wS0" firstAttribute="centerX" secondItem="hKM-0H-14e" secondAttribute="centerX" id="cFY-uj-Hd7"/>
                             <constraint firstItem="IfH-qv-wS0" firstAttribute="centerY" secondItem="hKM-0H-14e" secondAttribute="centerY" id="hj3-hi-e6b"/>
+                            <constraint firstItem="IfH-qv-wS0" firstAttribute="width" secondItem="hKM-0H-14e" secondAttribute="width" multiplier="0.7" id="pUC-Vo-T7J"/>
                             <constraint firstItem="677-ln-bIE" firstAttribute="top" secondItem="IfH-qv-wS0" secondAttribute="bottom" constant="45" id="qQj-il-A3A"/>
                             <constraint firstItem="Lth-U0-lUU" firstAttribute="centerX" secondItem="hKM-0H-14e" secondAttribute="centerX" id="xOp-Tm-WAR"/>
                             <constraint firstItem="677-ln-bIE" firstAttribute="centerX" secondItem="hKM-0H-14e" secondAttribute="centerX" id="zju-cV-hFd"/>
@@ -233,7 +234,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f0D-WU-suk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qeq-aa-oJz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="qeq-aa-oJz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -251,7 +252,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tAi-I1-AqK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Y9-FM-Did">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Y9-FM-Did">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
