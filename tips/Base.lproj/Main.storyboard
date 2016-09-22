@@ -119,7 +119,7 @@
                     <navigationItem key="navigationItem" title="Just The Tippr" id="dW7-HU-at2">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="16x-mx-C98">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5gE-ZM-ZMI">
-                                <rect key="frame" x="509" y="7" width="71" height="30"/>
+                                <rect key="frame" x="288" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
@@ -164,29 +164,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select default tip rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lth-U0-lUU">
-                                <frame key="frameInset" minX="80" minY="89" width="160" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select default tip rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lth-U0-lUU">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dark theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cT-7T-3kY">
-                                <frame key="frameInset" minX="73" minY="210" width="89" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzN-XF-xSQ">
-                                <frame key="frameInset" minX="180" minY="205" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="darkValueChanged:" destination="gu4-cK-SzY" eventType="valueChanged" id="vfk-Gw-Dkv"/>
-                                </connections>
-                            </switch>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IfH-qv-wS0">
-                                <frame key="frameInset" minX="64" minY="127" width="192" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="677-ln-bIE">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cT-7T-3kY">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzN-XF-xSQ">
+                                        <connections>
+                                            <action selector="darkValueChanged:" destination="gu4-cK-SzY" eventType="valueChanged" id="vfk-Gw-Dkv"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IfH-qv-wS0">
                                 <segments>
                                     <segment title="18%"/>
                                     <segment title="20%"/>
@@ -198,6 +194,14 @@
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IfH-qv-wS0" firstAttribute="top" secondItem="Lth-U0-lUU" secondAttribute="bottom" constant="20" id="FF0-vD-5ye"/>
+                            <constraint firstItem="IfH-qv-wS0" firstAttribute="centerX" secondItem="hKM-0H-14e" secondAttribute="centerX" id="cFY-uj-Hd7"/>
+                            <constraint firstItem="IfH-qv-wS0" firstAttribute="centerY" secondItem="hKM-0H-14e" secondAttribute="centerY" id="hj3-hi-e6b"/>
+                            <constraint firstItem="677-ln-bIE" firstAttribute="top" secondItem="IfH-qv-wS0" secondAttribute="bottom" constant="45" id="qQj-il-A3A"/>
+                            <constraint firstItem="Lth-U0-lUU" firstAttribute="centerX" secondItem="hKM-0H-14e" secondAttribute="centerX" id="xOp-Tm-WAR"/>
+                            <constraint firstItem="677-ln-bIE" firstAttribute="centerX" secondItem="hKM-0H-14e" secondAttribute="centerX" id="zju-cV-hFd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="WLc-TF-ryg">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="SNe-vK-3iC">
