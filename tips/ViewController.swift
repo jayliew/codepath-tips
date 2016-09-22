@@ -134,10 +134,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var currencyFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        formatter.locale = Locale.current
+        
+        let localeString = String(describing: Locale.current)
+        
+        let charOne = localeString[localeString.startIndex]
+        let charTwo = localeString[localeString.index(after: localeString.startIndex)]
+        
+        let newLocale: String?
+        if(charOne == "e" && charTwo == "n"){
+            newLocale = "en_US"
+        }else{
+            // e.g. gb_gb or de_de
+            newLocale = String(charOne) + String(charTwo) + "_" + String(charOne) + String(charTwo)
+        }
+        formatter.locale = Locale(identifier: newLocale!)
+        
+//        print(">>>" + String(describing: formatter.locale) + "<<<")
+        
         return formatter
     }
-
     
     @IBAction func backFromSettings(_ sender: UIStoryboardSegue){
     }
