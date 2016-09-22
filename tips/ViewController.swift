@@ -18,32 +18,6 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
 }
-/*
-extension String {
-    
-    subscript (i: Int) -> Character {
-        return self[self.startIndex.advancedBy(i)]
-    }
-    
-    subscript (i: Int) -> String {
-        return String(self[i] as Character)
-    }
-    
-    subscript (r: Range<Int>) -> String {
-        let start = startIndex.advancedBy(r.startIndex)
-        let end = start.advancedBy(r.endIndex - r.startIndex)
-        return self[Range(start ..< end)]
-    }
-}
- */
-/*
-extension String {
-    var validNumber: Bool {
-        guard let _ = self.rangeOfString("^[0-9]+(.?[0-9]+)*$", options: .RegularExpressionSearch) else { return false }
-        return true
-    }
-}
-*/
 class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Outlets
@@ -64,14 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var threePersonC: UIImageView!
     @IBOutlet weak var totalForThreeLabel: UILabel!
  
-//    @IBOutlet weak var totalForTwoLabel: UILabel!
-//    @IBOutlet weak var totalForThreeLabel: UILabel!
-//    @IBOutlet weak var twoPersonA: UIImageView!
-//    @IBOutlet weak var twoPersonB: UIImageView!
-//    @IBOutlet weak var threePersonA: UIImageView!
-//    @IBOutlet weak var threePersonB: UIImageView!
-//    @IBOutlet weak var threePersonC: UIImageView!
-
     @IBOutlet weak var billAmountLabel: UILabel!
 
     let pink = UIColor(red:0xF8, green: 0xDB, blue: 0xDA)
@@ -80,19 +46,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        twoPersonA.contentMode = .ScaleAspectFill
-//        twoPersonB.contentMode = .ScaleAspectFill
-//        threePersonA.contentMode = .ScaleAspectFill
-//        threePersonB.contentMode = .ScaleAspectFill
-//        threePersonC.contentMode = .ScaleAspectFill
-
-//        twoPersonA.contentMode = .ScaleAspectFit
-//        twoPersonB.contentMode = .ScaleAspectFit
-//        threePersonA.contentMode = .ScaleAspectFit
-//        threePersonB.contentMode = .ScaleAspectFit
-//        threePersonC.contentMode = .ScaleAspectFit
-
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         totalForTwoLabel.text = "$0.00"
@@ -141,7 +94,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             tipControl.layer.shadowOpacity = 0.3
             tipControl.layer.shadowRadius = 3.0
 
-            
             billField.backgroundColor = UIColor.white
             tipTextLabel.textColor = UIColor.black
             billField.textColor = UIColor.black
@@ -159,10 +111,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    
     // MARK: UITextFieldDelegate
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
+        // This provides input sanitization to prevent an invalid Float from being entered
         let oldText = textField.text ?? ""
         let newText = oldText + string
         
@@ -171,78 +124,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }else{
             return false
         }
-        
-        /*
-
-        if let number = Float(prospectiveText) {
-            return false
-        } else {
-            return true
-        }
-        
-        let allowedCharSet = NSCharacterSet(charactersIn: "1234567890.")
-        
-        if(string.characters.count == 1){
-            
-            let someChar = string.characters.first!
-            if(allowedCharSet.characterIsMember(someChar)){
-                return true
-            }else{
-                return false
-            }
-        }else{
-        }
-        
- */
-     //   return prospectiveText.rangeOfCharacter(from: allowed)
-        
-        
-
-        
-//        let all = NSCharacterSet.letters
-        // let allowedSet = all.subtracting(CharacterSet(charactersIn: "1234567890."))
-        
-        
-        
-//        return false
-        
-        /*
-         let newCharacters = NSCharacterSet(charactersIn: string)
-        let boolIsNumber = NSCharacterSet.decimalDigits.isSuperset(of:newCharacters as CharacterSet)
-        if boolIsNumber == true {
-            return true
-        } else {
-            if string == "." {
-                let countdots = textField.text!.components(separatedBy:".").count - 1
-                if countdots == 0 {
-                    return true
-                } else {
-                    if countdots > 0 && string == "." {
-                        return false
-                    } else {
-                        return true
-                    }
-                }
-            } else {
-                return false
-            }
-        }
- */
-    }
-
-    fileprivate func hideBillSplits(){
-        // hide all views related to splitting the bill 2 and 3 ways
-        UIView.animate(withDuration: 0.5, delay: 0.0,
-                                   options: UIViewAnimationOptions(), animations:{
-//                                    self.totalForTwoLabel.center.y += 200
-//                                    self.twoPersonA.center.y += 182
-//                                    self.twoPersonB.center.y += 182
-//                                    
-//                                    self.totalForThreeLabel.center.y += 120
-//                                    self.threePersonA.center.y += 102
-//                                    self.threePersonB.center.y += 102
-//                                    self.threePersonC.center.y += 102
-            }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -257,85 +138,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return formatter
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
-//            // If landscape
-//            self.billField.center.y = 80
-//        } else {
-//            // If portrait
-//            if billField.text == "" {
-//                billField.center.y = 200
-//            }
-//            else{
-//                onEditingChanged(billField)
-//            }
-//        }
-    }
     
     @IBAction func backFromSettings(_ sender: UIStoryboardSegue){
     }
     
-    @IBAction func onEditingChanged(_ sender: AnyObject) {        
-        if billField.center.y == 200.0 && billField.text != "" {
-            // If bill amount field is not empty, move these
-            // views up the y axis
-            UIView.animate(withDuration: 0.5, delay: 0.0,
-                options: UIViewAnimationOptions(), animations:{
-//                    self.billField.center.y -= 87
-//                    self.tipControl.center.y -= 170
-//                    self.tipLabel.center.y -= 170
-//                    self.tipTextLabel.center.y -= 170
-            }, completion: nil)
-            
-            UIView.animate(withDuration: 0.5, delay: 0.3,
-                options: UIViewAnimationOptions(), animations:{
-//                    self.totalLabel.center.y -= 170
-//                    self.onePerson.center.y -= 170
-                }, completion: nil)
-
-            UIView.animate(withDuration: 0.5, delay: 0.6,
-                options: UIViewAnimationOptions(), animations:{
-//                    self.totalForTwoLabel.center.y -= 200
-//                    self.twoPersonA.center.y -= 182
-//                    self.twoPersonB.center.y -= 182
-                }, completion: nil)
-
-            UIView.animate(withDuration: 0.5, delay: 0.9,
-                options: UIViewAnimationOptions(), animations:{
-//                    self.totalForThreeLabel.center.y -= 120
-//                    self.threePersonA.center.y -= 102
-//                    self.threePersonB.center.y -= 102
-//                    self.threePersonC.center.y -= 102
-                }, completion: nil)
-        }
-        
-        else if billField.center.y != 200.0 && billField.text == "" && UIDevice.current.orientation.isPortrait{
-            // If bill amount field is empty, move these
-            // views down the y axis
-
-            UIView.animate(withDuration: 0.5, delay: 0.0,
-                options: UIViewAnimationOptions(), animations:{
-//                    self.billField.center.y += 87
-//                    self.tipControl.center.y += 170
-//                    self.tipLabel.center.y += 170
-//                    self.tipTextLabel.center.y += 170
-//                    self.totalLabel.center.y += 170
-//                    self.onePerson.center.y += 170
-                }, completion: nil)
-
-            hideBillSplits()
-        }
-        
+    @IBAction func onEditingChanged(_ sender: AnyObject) {
         let billAmount = NSString(string: billField.text!).doubleValue
         let tipPercentages = [0.18, 0.2, 0.22]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
         let tip = billAmount * tipPercentage
         let total = billAmount + tip
-        
-        //tipLabel.text = String(format: "$%.2f",tip)
-        //totalLabel.text = String(format: "$%.2f", total)
-        
         
         tipLabel.text = currencyFormatter.string(from: NSNumber(value: tip))
         totalLabel.text = currencyFormatter.string(from: NSNumber(value: total))

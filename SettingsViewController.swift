@@ -22,9 +22,6 @@ class SettingsViewController: UIViewController{
     
     // MARK: Properties
     
-    let lightBlue = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
-    let darkBlue = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let defaults = UserDefaults.standard
@@ -75,7 +72,6 @@ class SettingsViewController: UIViewController{
         let defaults = UserDefaults.standard
         defaults.set(tipControl.selectedSegmentIndex, forKey: "default_tip_index")
         defaults.synchronize()
-
     }
     
     @IBAction func darkValueChanged(_ sender: AnyObject) {
@@ -107,9 +103,7 @@ class SettingsViewController: UIViewController{
             
             self.darkThemeLabel.textColor = UIColor.black
             self.tipRateLabel.textColor = UIColor.black
-
         }
-
     }
     
     @IBAction func onTap(_ sender: AnyObject) {
