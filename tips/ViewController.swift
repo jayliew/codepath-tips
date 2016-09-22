@@ -18,8 +18,33 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
 }
-
-class ViewController: UIViewController {
+/*
+extension String {
+    
+    subscript (i: Int) -> Character {
+        return self[self.startIndex.advancedBy(i)]
+    }
+    
+    subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let start = startIndex.advancedBy(r.startIndex)
+        let end = start.advancedBy(r.endIndex - r.startIndex)
+        return self[Range(start ..< end)]
+    }
+}
+ */
+/*
+extension String {
+    var validNumber: Bool {
+        guard let _ = self.rangeOfString("^[0-9]+(.?[0-9]+)*$", options: .RegularExpressionSearch) else { return false }
+        return true
+    }
+}
+*/
+class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Outlets
     
@@ -73,6 +98,8 @@ class ViewController: UIViewController {
         totalForTwoLabel.text = "$0.00"
         totalForThreeLabel.text = "$0.00"
         billField.becomeFirstResponder()
+        billField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,6 +157,77 @@ class ViewController: UIViewController {
             billField.text = String(defaults.double(forKey: "billAmount"))
             onEditingChanged(billField)
         }
+    }
+
+    
+    // MARK: UITextFieldDelegate
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        let oldText = textField.text ?? ""
+        let newText = oldText + string
+        
+        if let _ = Float(newText){
+            return true
+        }else{
+            return false
+        }
+        
+        /*
+
+        if let number = Float(prospectiveText) {
+            return false
+        } else {
+            return true
+        }
+        
+        let allowedCharSet = NSCharacterSet(charactersIn: "1234567890.")
+        
+        if(string.characters.count == 1){
+            
+            let someChar = string.characters.first!
+            if(allowedCharSet.characterIsMember(someChar)){
+                return true
+            }else{
+                return false
+            }
+        }else{
+        }
+        
+ */
+     //   return prospectiveText.rangeOfCharacter(from: allowed)
+        
+        
+
+        
+//        let all = NSCharacterSet.letters
+        // let allowedSet = all.subtracting(CharacterSet(charactersIn: "1234567890."))
+        
+        
+        
+//        return false
+        
+        /*
+         let newCharacters = NSCharacterSet(charactersIn: string)
+        let boolIsNumber = NSCharacterSet.decimalDigits.isSuperset(of:newCharacters as CharacterSet)
+        if boolIsNumber == true {
+            return true
+        } else {
+            if string == "." {
+                let countdots = textField.text!.components(separatedBy:".").count - 1
+                if countdots == 0 {
+                    return true
+                } else {
+                    if countdots > 0 && string == "." {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            } else {
+                return false
+            }
+        }
+ */
     }
 
     fileprivate func hideBillSplits(){
