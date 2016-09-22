@@ -25,61 +25,61 @@ class SettingsViewController: UIViewController{
     let lightBlue = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
     let darkBlue = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
-        darkSwitch.on = defaults.boolForKey("dark_theme")
+        tipControl.selectedSegmentIndex = defaults.integer(forKey: "default_tip_index")
+        darkSwitch.isOn = defaults.bool(forKey: "dark_theme")
         
-        if defaults.boolForKey("dark_theme") == true {
+        if defaults.bool(forKey: "dark_theme") == true {
             self.darkThemeLabel.textColor = lightBlue
             self.tipRateLabel.textColor = lightBlue
             self.view.backgroundColor = darkBlue
         }else{
-            self.view.backgroundColor = UIColor.whiteColor()
-            self.darkThemeLabel.textColor = UIColor.blackColor()
-            self.tipRateLabel.textColor = UIColor.blackColor()
+            self.view.backgroundColor = UIColor.white
+            self.darkThemeLabel.textColor = UIColor.black
+            self.tipRateLabel.textColor = UIColor.black
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)        
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
     
-    @IBAction func onValueChanged(sender: AnyObject) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(tipControl.selectedSegmentIndex, forKey: "default_tip_index")
+    @IBAction func onValueChanged(_ sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        defaults.set(tipControl.selectedSegmentIndex, forKey: "default_tip_index")
         defaults.synchronize()
 
     }
     
-    @IBAction func darkValueChanged(sender: AnyObject) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(darkSwitch.on, forKey: "dark_theme")
+    @IBAction func darkValueChanged(_ sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        defaults.set(darkSwitch.isOn, forKey: "dark_theme")
         defaults.synchronize()
-        if defaults.boolForKey("dark_theme") == true {
+        if defaults.bool(forKey: "dark_theme") == true {
             self.view.backgroundColor = darkBlue
             self.darkThemeLabel.textColor = lightBlue
             self.tipRateLabel.textColor = lightBlue
         }else{
-            self.view.backgroundColor = UIColor.whiteColor()
-            self.darkThemeLabel.textColor = UIColor.blackColor()
-            self.tipRateLabel.textColor = UIColor.blackColor()
+            self.view.backgroundColor = UIColor.white
+            self.darkThemeLabel.textColor = UIColor.black
+            self.tipRateLabel.textColor = UIColor.black
         }
 
     }
     
-    @IBAction func onTap(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func onTap(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

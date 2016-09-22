@@ -71,23 +71,23 @@ class ViewController: UIViewController {
         billField.becomeFirstResponder()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let defaults = NSUserDefaults.standardUserDefaults()
-        tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_index")
+        let defaults = UserDefaults.standard
+        tipControl.selectedSegmentIndex = defaults.integer(forKey: "default_tip_index")
         
         // Set theme color
-        if defaults.boolForKey("dark_theme") == true {
+        if defaults.bool(forKey: "dark_theme") == true {
             
             let darkBlue = UIColor(red: 0.0235, green: 0, blue: 0.3765, alpha: 1.0)
             let lightBlue = UIColor(red: 0, green: 0.5647, blue: 1, alpha: 1.0)
             self.view.backgroundColor = darkBlue
             billField.backgroundColor = darkBlue
             tipTextLabel.textColor = lightBlue
-            billField.textColor = UIColor.whiteColor()
+            billField.textColor = UIColor.white
             billField.backgroundColor = lightBlue
             tipLabel.textColor = lightBlue
-            totalLabel.textColor = UIColor.whiteColor()
+            totalLabel.textColor = UIColor.white
 //            totalForTwoLabel.textColor = UIColor.whiteColor()
 //            totalForThreeLabel.textColor = UIColor.whiteColor()
         }else{
@@ -95,35 +95,35 @@ class ViewController: UIViewController {
             //self.view.backgroundColor = UIColor(red:0xF6, green: 0xCA, blue: 0xC8)
             tipControl.tintColor = UIColor(red:0x91, green:0xA4, blue:0xD0)
             
-            tipControl.backgroundColor = UIColor.whiteColor()
+            tipControl.backgroundColor = UIColor.white
             tipControl.layer.cornerRadius = 3
-            tipControl.layer.shadowColor = UIColor.blackColor().CGColor
+            tipControl.layer.shadowColor = UIColor.black.cgColor
             tipControl.layer.shadowOffset = CGSize(width: 3, height: 3)
             tipControl.layer.shadowOpacity = 0.3
             tipControl.layer.shadowRadius = 3.0
 
             
-            billField.backgroundColor = UIColor.whiteColor()
-            tipTextLabel.textColor = UIColor.blackColor()
-            billField.textColor = UIColor.blackColor()
-            billField.backgroundColor = UIColor.whiteColor()
-            tipLabel.textColor = UIColor.blackColor()
+            billField.backgroundColor = UIColor.white
+            tipTextLabel.textColor = UIColor.black
+            billField.textColor = UIColor.black
+            billField.backgroundColor = UIColor.white
+            tipLabel.textColor = UIColor.black
 //            totalLabel.textColor = UIColor.blackColor()
 //            totalForTwoLabel.textColor = UIColor.blackColor()
 //            totalForThreeLabel.textColor = UIColor.blackColor()
         }
         
-        if defaults.objectForKey("billAmount") != nil {
+        if defaults.object(forKey: "billAmount") != nil {
             // grab value from NSUserDefaults if it exists
-            billField.text = String(defaults.doubleForKey("billAmount"))
+            billField.text = String(defaults.double(forKey: "billAmount"))
             onEditingChanged(billField)
         }
     }
 
-    private func hideBillSplits(){
+    fileprivate func hideBillSplits(){
         // hide all views related to splitting the bill 2 and 3 ways
-        UIView.animateWithDuration(0.5, delay: 0.0,
-                                   options: .CurveEaseInOut, animations:{
+        UIView.animate(withDuration: 0.5, delay: 0.0,
+                                   options: UIViewAnimationOptions(), animations:{
 //                                    self.totalForTwoLabel.center.y += 200
 //                                    self.twoPersonA.center.y += 182
 //                                    self.twoPersonB.center.y += 182
@@ -140,14 +140,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var currencyFormatter: NSNumberFormatter {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        formatter.locale = NSLocale.currentLocale()
+    var currencyFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
         return formatter
     }
 
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 //        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
 //            // If landscape
 //            self.billField.center.y = 80
@@ -162,36 +162,36 @@ class ViewController: UIViewController {
 //        }
     }
     
-    @IBAction func backFromSettings(sender: UIStoryboardSegue){
+    @IBAction func backFromSettings(_ sender: UIStoryboardSegue){
     }
     
-    @IBAction func onEditingChanged(sender: AnyObject) {        
+    @IBAction func onEditingChanged(_ sender: AnyObject) {        
         if billField.center.y == 200.0 && billField.text != "" {
             // If bill amount field is not empty, move these
             // views up the y axis
-            UIView.animateWithDuration(0.5, delay: 0.0,
-                options: .CurveEaseInOut, animations:{
+            UIView.animate(withDuration: 0.5, delay: 0.0,
+                options: UIViewAnimationOptions(), animations:{
 //                    self.billField.center.y -= 87
 //                    self.tipControl.center.y -= 170
 //                    self.tipLabel.center.y -= 170
 //                    self.tipTextLabel.center.y -= 170
             }, completion: nil)
             
-            UIView.animateWithDuration(0.5, delay: 0.3,
-                options: .CurveEaseInOut, animations:{
+            UIView.animate(withDuration: 0.5, delay: 0.3,
+                options: UIViewAnimationOptions(), animations:{
 //                    self.totalLabel.center.y -= 170
 //                    self.onePerson.center.y -= 170
                 }, completion: nil)
 
-            UIView.animateWithDuration(0.5, delay: 0.6,
-                options: .CurveEaseInOut, animations:{
+            UIView.animate(withDuration: 0.5, delay: 0.6,
+                options: UIViewAnimationOptions(), animations:{
 //                    self.totalForTwoLabel.center.y -= 200
 //                    self.twoPersonA.center.y -= 182
 //                    self.twoPersonB.center.y -= 182
                 }, completion: nil)
 
-            UIView.animateWithDuration(0.5, delay: 0.9,
-                options: .CurveEaseInOut, animations:{
+            UIView.animate(withDuration: 0.5, delay: 0.9,
+                options: UIViewAnimationOptions(), animations:{
 //                    self.totalForThreeLabel.center.y -= 120
 //                    self.threePersonA.center.y -= 102
 //                    self.threePersonB.center.y -= 102
@@ -199,12 +199,12 @@ class ViewController: UIViewController {
                 }, completion: nil)
         }
         
-        else if billField.center.y != 200.0 && billField.text == "" && UIDevice.currentDevice().orientation.isPortrait.boolValue{
+        else if billField.center.y != 200.0 && billField.text == "" && UIDevice.current.orientation.isPortrait{
             // If bill amount field is empty, move these
             // views down the y axis
 
-            UIView.animateWithDuration(0.5, delay: 0.0,
-                options: .CurveEaseInOut, animations:{
+            UIView.animate(withDuration: 0.5, delay: 0.0,
+                options: UIViewAnimationOptions(), animations:{
 //                    self.billField.center.y += 87
 //                    self.tipControl.center.y += 170
 //                    self.tipLabel.center.y += 170
@@ -226,20 +226,21 @@ class ViewController: UIViewController {
         //tipLabel.text = String(format: "$%.2f",tip)
         //totalLabel.text = String(format: "$%.2f", total)
         
-        tipLabel.text = currencyFormatter.stringFromNumber(tip)
-        totalLabel.text = currencyFormatter.stringFromNumber(total)
-        totalForTwoLabel.text = currencyFormatter.stringFromNumber(total / 2)
-        totalForThreeLabel.text = currencyFormatter.stringFromNumber(total / 3)
+        
+        tipLabel.text = currencyFormatter.string(from: NSNumber(value: tip))
+        totalLabel.text = currencyFormatter.string(from: NSNumber(value: total))
+        totalForTwoLabel.text = currencyFormatter.string(from: NSNumber(value: (total / 2)))
+        totalForThreeLabel.text = currencyFormatter.string(from: NSNumber(value: (total / 3)))
     }
     
-    override func viewWillDisappear(animated: Bool){
+    override func viewWillDisappear(_ animated: Bool){
         super.viewWillDisappear(animated)
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setDouble(NSString(string: billField.text!).doubleValue, forKey: "billAmount")
+        let defaults = UserDefaults.standard
+        defaults.set(NSString(string: billField.text!).doubleValue, forKey: "billAmount")
     }
     
 
-    @IBAction func onTap(sender: AnyObject) {
+    @IBAction func onTap(_ sender: AnyObject) {
         view.endEditing(true)
     }
 }
