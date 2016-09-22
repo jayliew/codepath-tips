@@ -8,7 +8,8 @@ Completed:
 
 * [DONE] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
 * [DONE] Required: Settings page to change the default tip percentage.
-* [DONE] Optional: UI animations
+* [DONE] Optional: StackViews
+* [DONE] Optional: AutoLayout
 * [DONE] Optional: Remembering the bill amount across app restarts (if <10mins)
 * [DONE] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 * [DONE] Optional: Add a light/dark color theme to the settings view. In viewWillAppear, update views with the correct theme colors.
