@@ -57,6 +57,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         let defaults = UserDefaults.standard
         tipControl.selectedSegmentIndex = defaults.integer(forKey: "default_tip_index")
         
@@ -169,6 +170,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         totalLabel.text = currencyFormatter.string(from: NSNumber(value: total))
         totalForTwoLabel.text = currencyFormatter.string(from: NSNumber(value: (total / 2)))
         totalForThreeLabel.text = currencyFormatter.string(from: NSNumber(value: (total / 3)))
+        
+        totalForTwoLabel.alpha = 0
+        totalForThreeLabel.alpha = 0
+        
+        twoPersonA.alpha = 0
+        twoPersonB.alpha = 0
+
+        threePersonA.alpha = 0
+        threePersonB.alpha = 0
+        threePersonC.alpha = 0
+
+        UIView.animate(withDuration:0.5, animations: {
+            self.totalForTwoLabel.alpha = 1
+            self.twoPersonA.alpha = 1
+            self.twoPersonB.alpha = 1
+        })
+        UIView.animate(withDuration:1.0, animations: {
+            self.totalForThreeLabel.alpha = 1
+            self.threePersonA.alpha = 1
+            self.threePersonB.alpha = 1
+            self.threePersonC.alpha = 1
+        })
+        
     }
     
     override func viewWillDisappear(_ animated: Bool){

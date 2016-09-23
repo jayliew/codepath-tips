@@ -2,7 +2,7 @@
 
 This is a Tip Calculator application for iOS submitted as the [pre-assignment](https://gist.github.com/timothy1ee/7747214) requirement for CodePath.
 
-Time spent: 23 hours
+Time spent: 25 hours
 
 Completed:
 
@@ -10,6 +10,8 @@ Completed:
 * [DONE] Required: Settings page to change the default tip percentage.
 * [DONE] Optional: StackViews
 * [DONE] Optional: AutoLayout
+* [DONE] Optional: Text input sanitization: only [0-9] and only 1 period allowed
+* [DONE] Optional: Animation. 2 and 3 people bill splits show up a split second after
 * [DONE] Optional: Remembering the bill amount across app restarts (if <10mins)
 * [DONE] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 * [DONE] Optional: Add a light/dark color theme to the settings view. In viewWillAppear, update views with the correct theme colors.
