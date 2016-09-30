@@ -120,6 +120,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let oldText = textField.text ?? ""
         let newText = oldText + string
         
+        
+        if oldText.range(of: ".") != nil && string.range(of: ".") != nil {
+            return false
+        }
+        
         if let _ = Float(newText){
             return true
         }else{
